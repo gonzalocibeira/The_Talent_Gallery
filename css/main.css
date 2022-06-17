@@ -1,3 +1,9 @@
+/* CSS reset */
+* {
+  margin: 0;
+  padding: 0; }
+
+
 .lang_btn {
   background-color: transparent;
   border: none; }
@@ -11,3 +17,6 @@
 
 .nav_btn {
   height: 35px; }
+
+span.weak {
+  font-weight: lighter; }
