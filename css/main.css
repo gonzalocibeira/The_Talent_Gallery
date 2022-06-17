@@ -1,0 +1,13 @@
+.lang_btn {
+  background-color: transparent;
+  border: none; }
+
+.text_nav {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px; }
+
+.nav_div {
+  border-bottom: 2px solid black; }
+
+.nav_btn {
+  height: 35px; }
