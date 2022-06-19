@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0; }
 
-
 .lang_btn {
   background-color: transparent;
   border: none; }
@@ -20,3 +19,14 @@
 
 span.weak {
   font-weight: lighter; }
+
+#filtersMenu {
+  padding-bottom: 1vh;
+  border-bottom: 2px solid black; }
+
+.filterBar {
+  width: 15vw; }
+
+.filterText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem; }
