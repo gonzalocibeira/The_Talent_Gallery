@@ -20,6 +20,16 @@
 span.weak {
   font-weight: lighter; }
 
+.navIcon {
+  width: 1.5vw;
+  display: none; }
+
+@media only screen and (max-width: 1200px) {
+  .btnNavText {
+    display: none; }
+  .navIcon {
+    display: inline; } }
+
 #filtersMenu {
   padding-bottom: 1vh;
   border-bottom: 2px solid black; }
