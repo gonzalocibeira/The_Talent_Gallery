@@ -21,14 +21,7 @@ span.weak {
   font-weight: lighter; }
 
 .navIcon {
-  width: 1.5vw;
   display: none; }
-
-@media only screen and (max-width: 1200px) {
-  .btnNavText {
-    display: none; }
-  .navIcon {
-    display: inline; } }
 
 #filtersMenu {
   padding-bottom: 1vh;
@@ -40,3 +33,21 @@ span.weak {
 .filterText {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem; }
+
+@media only screen and (max-width: 1200px) {
+  .btnNavText {
+    display: none; }
+  .filterBar {
+    width: 20vw; }
+  .navIcon {
+    display: inline;
+    padding-bottom: 6px;
+    width: 1.5vw; } }
+
+@media only screen and (max-width: 768px) {
+  .filterBar {
+    width: 50vw; }
+  .navIcon {
+    width: 2vw; }
+  .text_nav {
+    font-size: 4.5vw; } }
