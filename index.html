@@ -23,18 +23,19 @@
                     <button type="button" class="lang_btn mb-1"><span class="weak">ES</span>|<strong>EN</strong></button>
                 </div>
                 <div class="d-flex justify-content-between align-items-center nav_div">
-                    <button type="button" class="btn btn-outline-secondary nav_btn">
+                    <button type="button" class="btn btn-outline-secondary nav_btn" onclick="toggleFilters()">
                         <span class="btnNavText">Show Filters</span>
                         <img class="navIcon" src="./images/filter.png" alt="Filter button">
                     </button>
                     <a class="navbar-brand text_nav" href="#">- The Talent Gallery -</a>
-                    <button type="button" class="btn btn-outline-secondary nav_btn">
+                    <button type="button" class="btn btn-outline-secondary nav_btn" onclick="addProfile()">
                         <span class="btnNavText">Create Profile</span>
                         <img class="navIcon" src="./images/plus.png" alt="Add profile button">
                     </button>
                 </div>
             </div>
         </nav>
+        <!-- Filter bar -->
         <div id="filtersMenu" class="d-xl-flex justify-content-xl-around mt-3 mx-5">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-evenly">
                 <label for="experience" class="form-label me-1 filterText">Experience</label>
@@ -81,6 +82,14 @@
                 </div>
             </div>
         </div>
+        <main>
+            <div id="mainDiv" class="d-flex align-items-center justify-content-center">
+                <button class="btn btn-outline-primary mx-5 my-5" onclick="entregaUno()">
+                    Boton para 1er entrega proyecto final Coder
+                </button>
+
+            </div>
+        </main>
     </div>
     <!-- My JS -->
     <script src="./js/main.js"></script>

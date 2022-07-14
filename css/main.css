@@ -25,7 +25,8 @@ span.weak {
 
 #filtersMenu {
   padding-bottom: 1vh;
-  border-bottom: 2px solid black; }
+  border-bottom: 2px solid black;
+  display: none !important; }
 
 .filterBar {
   width: 15vw; }
