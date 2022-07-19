@@ -6,12 +6,19 @@ function toggleFilters(){
     window.getComputedStyle(filterBar).display === "none" ? filterBar.style.setProperty("display", "block", "important") : filterBar.style.setProperty("display", "none", "important") ;
 }
 
+class Profile {
+    constructor(name, surname){
+        this.name = name;
+        this.surname = surname;
+    }
+}
+
 function addProfile() {
-    let profile = [prompt("Add name"), prompt("Add surname")] 
-    alert("Profile added for user "+profile[0]+" "+profile[1]);
+    const profile = new Profile(prompt("Enter name"), prompt("Enter surname"))
+    alert("Profile added for user "+profile.name+" "+profile.surname);
 
     const div = document.createElement("div");
-    const content = document.createTextNode(profile[0]+" "+profile[1]);
+    const content = document.createTextNode(profile.name+" "+profile.surname);
     div.appendChild(content);
 
     document.body.appendChild(div);
