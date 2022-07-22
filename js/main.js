@@ -18,8 +18,12 @@ function addProfile() {
     alert("Profile added for user "+profile.name+" "+profile.surname);
 
     const div = document.createElement("div");
-    const content = document.createTextNode(profile.name+" "+profile.surname);
-    div.appendChild(content);
+
+    div.setAttribute("style","border: 5px solid rgba(6,22,33,0.42); border-radius: 12px; width: 20vw; margin-top: 5px;")
+
+    div.innerHTML = `<h3> Name: ${profile.name} </h3>
+                    <h3> Surname: ${profile.surname} </h3>`;
+    
 
     document.body.appendChild(div);
     
