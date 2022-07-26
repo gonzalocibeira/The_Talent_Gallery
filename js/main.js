@@ -1,17 +1,21 @@
-
-const filterBar = document.getElementById("filtersMenu");
+/* Variables */
+const filterBar = document.querySelector("#filtersMenu");
+const filterBtn = document.querySelector("#filterToggle");
+const addProfileBtn = document.querySelector("#addProfileBtn");
 const profiles = [];
 
-function toggleFilters(){
-    window.getComputedStyle(filterBar).display === "none" ? filterBar.style.setProperty("display", "block", "important") : filterBar.style.setProperty("display", "none", "important") ;
-}
-
+/* Classes */
 class Profile {
     constructor(name, surname){
         this.name = name;
         this.surname = surname;
     }
-}
+};
+
+/* Functions */
+function toggleFilters(){
+    window.getComputedStyle(filterBar).display === "none" ? filterBar.style.setProperty("display", "block", "important") : filterBar.style.setProperty("display", "none", "important") ;
+};
 
 function addProfile() {
     const profile = new Profile(prompt("Enter name"), prompt("Enter surname"))
@@ -24,11 +28,10 @@ function addProfile() {
     div.innerHTML = `<h3> Name: ${profile.name} </h3>
                     <h3> Surname: ${profile.surname} </h3>`;
     
-
     document.body.appendChild(div);
     
     profiles.push(profile);
-}
+};
 
 function entregaUno() {
     let acum = 0
@@ -37,5 +40,9 @@ function entregaUno() {
         alert("No hay perfiles registrados, crea uno hacindo click en el botón Create Profile");
     }
     else acum === 1 ? alert("Hay 1 perfil registrado") : alert("Hay "+acum+" perfiles registrados");
-}
+};
+
+/* Event listeners */
+filterBtn.addEventListener("click", toggleFilters);
+addProfileBtn.addEventListener("click", addProfile);
 
