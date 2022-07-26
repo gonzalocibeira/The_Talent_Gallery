@@ -3,6 +3,7 @@ const filterBar = document.querySelector("#filtersMenu");
 const filterBtn = document.querySelector("#filterToggle");
 const addProfileBtn = document.querySelector("#addProfileBtn");
 const profiles = [];
+const userPics = ["./images/man.png", "./images/man_1.png", "./images/woman.png"];
 
 /* Classes */
 class Profile {
@@ -19,13 +20,16 @@ function toggleFilters(){
 
 function addProfile() {
     const profile = new Profile(prompt("Enter name"), prompt("Enter surname"))
-    alert("Profile added for user "+profile.name+" "+profile.surname);
+    alert(`Profile added for user ${profile.name} ${profile.surname}`);
+
+    const profilePic = userPics[Math.floor(Math.random() * userPics.length)];
 
     const div = document.createElement("div");
 
-    div.setAttribute("style","border: 5px solid rgba(6,22,33,0.42); border-radius: 12px; width: 20vw; margin-top: 5px;")
+    div.classList.add("profileCard", "d-flex", "flex-column", "align-items-center", "justify-content-center", "mx-5", "my-2");
 
-    div.innerHTML = `<h3> Name: ${profile.name} </h3>
+    div.innerHTML = `<img src="${profilePic}" alt="User Profile Picture" class="mt-1">
+                    <h3> Name: ${profile.name} </h3>
                     <h3> Surname: ${profile.surname} </h3>`;
     
     document.body.appendChild(div);
