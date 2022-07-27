@@ -2,6 +2,8 @@
 const filterBar = document.querySelector("#filtersMenu");
 const filterBtn = document.querySelector("#filterToggle");
 const addProfileBtn = document.querySelector("#addProfileBtn");
+const entregaUnoBtn = document.querySelector("#entregaUno");
+const profileArea = document.querySelector("#profileArea");
 const profiles = [];
 const userPics = ["./images/man.png", "./images/man_1.png", "./images/woman.png"];
 
@@ -32,7 +34,8 @@ function addProfile() {
                     <h3> Name: ${profile.name} </h3>
                     <h3> Surname: ${profile.surname} </h3>`;
     
-    document.body.appendChild(div);
+    profileArea.appendChild(div);                
+    //document.body.appendChild(div);
     
     profiles.push(profile);
 };
@@ -49,4 +52,6 @@ function entregaUno() {
 /* Event listeners */
 filterBtn.addEventListener("click", toggleFilters);
 addProfileBtn.addEventListener("click", addProfile);
+entregaUnoBtn.addEventListener("click", entregaUno);
+
 
