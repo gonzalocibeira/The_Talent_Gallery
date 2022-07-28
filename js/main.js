@@ -5,7 +5,7 @@ const addProfileBtn = document.querySelector("#addProfileBtn");
 const entregaUnoBtn = document.querySelector("#entregaUno");
 const profileArea = document.querySelector("#profileArea");
 const profiles = [];
-const userPics = ["./images/man.png", "./images/man_1.png", "./images/woman.png"];
+const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/paint3.webp", "./images/paint4.webp"];
 
 /* Classes */
 class Profile {
@@ -30,28 +30,19 @@ function addProfile() {
 
     div.classList.add("profileCard", "d-flex", "flex-column", "align-items-center", "justify-content-center", "mx-5", "my-2");
 
-    div.innerHTML = `<img src="${profilePic}" alt="User Profile Picture" class="mt-1">
+    div.innerHTML = `<img src="${profilePic}" alt="User Profile Painting" class="mt-1 profilePaint">
                     <h3> Name: ${profile.name} </h3>
                     <h3> Surname: ${profile.surname} </h3>`;
     
     profileArea.appendChild(div);                
-    //document.body.appendChild(div);
-    
+
     profiles.push(profile);
 };
 
-function entregaUno() {
-    let acum = 0
-    profiles.forEach(el => acum += 1);
-    if (acum === 0){
-        alert("No hay perfiles registrados, crea uno hacindo click en el botón Create Profile");
-    }
-    else acum === 1 ? alert("Hay 1 perfil registrado") : alert("Hay "+acum+" perfiles registrados");
-};
 
 /* Event listeners */
 filterBtn.addEventListener("click", toggleFilters);
 addProfileBtn.addEventListener("click", addProfile);
-entregaUnoBtn.addEventListener("click", entregaUno);
+
 
 
