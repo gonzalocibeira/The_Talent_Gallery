@@ -59,4 +59,5 @@ span.weak {
   width: 20vw; }
 
 .profilePaint {
-  width: 19vw; }
+  width: 19vw;
+  max-height: 150px; }

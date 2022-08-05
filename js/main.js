@@ -4,7 +4,7 @@ const filterBtn = document.querySelector("#filterToggle");
 const addProfileBtn = document.querySelector("#addProfileBtn");
 const entregaUnoBtn = document.querySelector("#entregaUno");
 const profileArea = document.querySelector("#profileArea");
-const profiles = [];
+const profiles = JSON.parse(localStorage.getItem("addedProfiles")) == null ? [] : JSON.parse(localStorage.getItem("addedProfiles"));
 const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/paint3.webp", "./images/paint4.webp"];
 
 /* Classes */
@@ -15,15 +15,18 @@ class Profile {
     }
 };
 
+/*Draw profiles in localStorage */
+if (profiles.length > 0) {
+    profiles.forEach(profile => drawProfileCard(profile));
+};
+
 /* Functions */
 function toggleFilters(){
     window.getComputedStyle(filterBar).display === "none" ? filterBar.style.setProperty("display", "block", "important") : filterBar.style.setProperty("display", "none", "important") ;
 };
 
-function addProfile() {
-    const profile = new Profile(prompt("Enter name"), prompt("Enter surname"))
-    alert(`Profile added for user ${profile.name} ${profile.surname}`);
-
+function drawProfileCard(profile){
+    console.log(profile);
     const profilePic = userPics[Math.floor(Math.random() * userPics.length)];
 
     const div = document.createElement("div");
@@ -33,10 +36,19 @@ function addProfile() {
     div.innerHTML = `<img src="${profilePic}" alt="User Profile Painting" class="mt-1 profilePaint">
                     <h3> Name: ${profile.name} </h3>
                     <h3> Surname: ${profile.surname} </h3>`;
+
+    profileArea.appendChild(div); 
+}
+
+function addProfile() {
+    const profile = new Profile(prompt("Enter name"), prompt("Enter surname"))
+    alert(`Profile added for user ${profile.name} ${profile.surname}`);
     
-    profileArea.appendChild(div);                
+    drawProfileCard(profile);
 
     profiles.push(profile);
+
+    localStorage.setItem("addedProfiles", JSON.stringify(profiles));
 };
 
 
