@@ -1,8 +1,8 @@
 /* Variables */
 const filterBar = document.querySelector("#filtersMenu");
 const filterBtn = document.querySelector("#filterToggle");
-const addProfileBtn = document.querySelector("#addProfileBtn");
 const entregaUnoBtn = document.querySelector("#entregaUno");
+const profileForm = document.querySelector("#newProfileForm");
 const profileArea = document.querySelector("#profileArea");
 const profiles = JSON.parse(localStorage.getItem("addedProfiles")) == null ? [] : JSON.parse(localStorage.getItem("addedProfiles"));
 const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/paint3.webp", "./images/paint4.webp"];
@@ -41,8 +41,7 @@ function drawProfileCard(profile){
 }
 
 function addProfile() {
-    const profile = new Profile(prompt("Enter name"), prompt("Enter surname"))
-    alert(`Profile added for user ${profile.name} ${profile.surname}`);
+    const profile = new Profile(profileForm.elements["nameInput"].value, profileForm.elements["surnameInput"].value)
     
     drawProfileCard(profile);
 
@@ -54,7 +53,7 @@ function addProfile() {
 
 /* Event listeners */
 filterBtn.addEventListener("click", toggleFilters);
-addProfileBtn.addEventListener("click", addProfile);
+profileForm.addEventListener("submit", addProfile);
 
 
 

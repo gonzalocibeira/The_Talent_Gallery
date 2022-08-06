@@ -28,7 +28,7 @@
                         <img class="navIcon" src="./images/filter.png" alt="Filter button">
                     </button>
                     <a class="navbar-brand text_nav" href="#">- The Talent Gallery -</a>
-                    <button type="button" class="btn btn-outline-secondary nav_btn" id="addProfileBtn">
+                    <button type="button" class="btn btn-outline-secondary nav_btn" data-bs-toggle="modal" data-bs-target="#modalCrateProfile">
                         <span class="btnNavText">Create Profile</span>
                         <img class="navIcon" src="./images/plus.png" alt="Add profile button">
                     </button>
@@ -83,6 +83,32 @@
             </div>
         </div>
         <main>
+            <!-- Modal Crete Profile -->
+            <div class="modal fade" id="modalCrateProfile" tabindex="-1" aria-labelledby="modalCrateProfileLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCrateProfileLabel">Create new profile</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newProfileForm">
+                            <div class="mb-3">
+                              <label for="nameInput" class="form-label">First name</label>
+                              <input type="text" class="form-control" id="nameInput">
+                            </div>
+                            <div class="mb-3">
+                              <label for="surnameInput" class="form-label">Surname</label>
+                              <input type="text" class="form-control" id="surnameInput">
+                            </div>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn-success">Create</button>
+                            </div>
+                          </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <div id="profileArea" class="d-flex flex-wrap align-items-center justify-content-center">
             </div>
         </main>
