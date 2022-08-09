@@ -83,16 +83,16 @@
             </div>
         </div>
         <main>
-            <!-- Modal Crete Profile -->
+            <!-- Modal Create Profile -->
             <div class="modal fade" id="modalCrateProfile" tabindex="-1" aria-labelledby="modalCrateProfileLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modalCrateProfileLabel">Create new profile</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <button type="button" class="btn-close" id="btnCloseProfileModal" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="newProfileForm">
+                        <form id="newProfileForm" onsubmit="return false">
                             <div class="mb-3">
                               <label for="nameInput" class="form-label">First name</label>
                               <input type="text" class="form-control" id="nameInput">
@@ -113,6 +113,8 @@
             </div>
         </main>
     </div>
+    <!-- SweetAlert JS -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- My JS -->
     <script src="./js/main.js"></script>
     <!-- Bootstrap JS -->

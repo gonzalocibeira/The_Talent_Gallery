@@ -6,6 +6,7 @@ const profileForm = document.querySelector("#newProfileForm");
 const profileArea = document.querySelector("#profileArea");
 const profiles = JSON.parse(localStorage.getItem("addedProfiles")) == null ? [] : JSON.parse(localStorage.getItem("addedProfiles"));
 const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/paint3.webp", "./images/paint4.webp"];
+const btnCloseProfModal = document.querySelector("#btnCloseProfileModal");
 
 /* Classes */
 class Profile {
@@ -26,7 +27,6 @@ function toggleFilters(){
 };
 
 function drawProfileCard(profile){
-    console.log(profile);
     const profilePic = userPics[Math.floor(Math.random() * userPics.length)];
 
     const div = document.createElement("div");
@@ -38,7 +38,7 @@ function drawProfileCard(profile){
                     <h3> Surname: ${profile.surname} </h3>`;
 
     profileArea.appendChild(div); 
-}
+};
 
 function addProfile() {
     const profile = new Profile(profileForm.elements["nameInput"].value, profileForm.elements["surnameInput"].value)
@@ -48,6 +48,14 @@ function addProfile() {
     profiles.push(profile);
 
     localStorage.setItem("addedProfiles", JSON.stringify(profiles));
+
+    btnCloseProfModal.click();
+
+    Swal.fire({
+        title: 'New profile added!',
+        icon: 'success',
+        confirmButtonText: 'Awesome!'
+      });
 };
 
 
