@@ -12,10 +12,26 @@ const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/pain
 const btnCloseProfModal = document.querySelector("#btnCloseProfileModal");
 const contents = [document.querySelectorAll(".enText"), document.querySelectorAll(".esText")];
 let defaultLang = JSON.parse(localStorage.getItem("defaultLang")) == null ? firstLoadLang() : JSON.parse(localStorage.getItem("defaultLang"));
+const rndUserAPI = "https://randomuser.me/api/";
+const rndUsers = [];
 
 if (defaultLang == "es"){
     changeLang(true);
 };
+
+/* Populate page with random users */
+let rndQ = Math.floor(Math.random() * 15)
+for (var i = 0; i<rndQ; i++) {
+    const user = fetch(rndUserAPI)
+                .then(response => response.json())
+                .then(data => populateRnd(data));
+};
+
+function populateRnd(data){
+    let profile = new Profile(data["results"][0]["name"]["first"], data["results"][0]["name"]["last"]);
+    drawProfileCard(profile);
+}
+
 
 /* Classes */
 class Profile {
