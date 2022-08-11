@@ -11,6 +11,11 @@ const profiles = JSON.parse(localStorage.getItem("addedProfiles")) == null ? [] 
 const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/paint3.webp", "./images/paint4.webp"];
 const btnCloseProfModal = document.querySelector("#btnCloseProfileModal");
 const contents = [document.querySelectorAll(".enText"), document.querySelectorAll(".esText")];
+let defaultLang = JSON.parse(localStorage.getItem("defaultLang")) == null ? firstLoadLang() : JSON.parse(localStorage.getItem("defaultLang"));
+
+if (defaultLang == "es"){
+    changeLang(true);
+};
 
 /* Classes */
 class Profile {
@@ -26,6 +31,21 @@ if (profiles.length > 0) {
 };
 
 /* Functions */
+function firstLoadLang(){
+    localStorage.setItem("defaultLang", JSON.stringify("en"));
+    return "en";
+};
+
+function navBtnFix(){
+    w = document.documentElement.clientWidth;
+    if (w < 1200){
+        btnNavText[0].forEach(cont => cont.style.display = "none");
+        btnNavText[1].forEach(cont => cont.style.display = "none");
+    } else {
+        btnNavText[0].forEach(cont => cont.style.display = "block");
+    }
+};
+
 function toggleDisplay(cont){
     window.getComputedStyle(cont[0]).display == "none" ? cont.forEach(el => el.style.display = "block") : cont.forEach(el => el.style.display = "none");
 };
@@ -34,18 +54,19 @@ function toggleLangInd(btn){
     window.getComputedStyle(btn).fontWeight === "700" ? btn.style.fontWeight = "100" : btn.style.fontWeight = "700";
 };
 
-function changeLang(){
+function changeLang(isDefault){
     w = document.documentElement.clientWidth;
     if(w >= 1200){
         btnNavText.forEach(cont => toggleDisplay(cont));
     };
+
     contents.forEach(cont => toggleDisplay(cont));
     langInd.forEach(ind => toggleLangInd(ind));
-
-    defaultLang == "en" ? defaultLang = "es" : defaultLang = "en";
-    console.log(defaultLang);
-    localStorage.setItem("defaultLang", JSON.stringify(defaultLang));
-
+    
+    if(!isDefault){
+        defaultLang == "en" ? defaultLang = "es" : defaultLang = "en";
+        localStorage.setItem("defaultLang", JSON.stringify(defaultLang));
+    };
 };
 
 function toggleFilters(){
@@ -87,8 +108,9 @@ function addProfile() {
 
 /* Event listeners */
 filterBtn.addEventListener("click", toggleFilters);
-langBtn.addEventListener("click", changeLang);
+langBtn.addEventListener("click", function(){changeLang(false)});
 profileForm.addEventListener("submit", addProfile);
+addEventListener("resize", navBtnFix);
 
 
 
