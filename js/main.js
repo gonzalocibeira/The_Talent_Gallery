@@ -1,6 +1,7 @@
 /* Variables */
 const filterBar = document.querySelector("#filtersMenu");
 const filterBtn = document.querySelector("#filterToggle");
+const btnNavText = [document.querySelectorAll(".enNav"), document.querySelectorAll(".esNav")];
 const langBtn = document.querySelector(".lang-btn");
 const langInd = [document.querySelector("#enLang"), document.querySelector("#esLang")];
 const entregaUnoBtn = document.querySelector("#entregaUno");
@@ -34,6 +35,10 @@ function toggleLangInd(btn){
 };
 
 function changeLang(){
+    w = document.documentElement.clientWidth;
+    if(w >= 1200){
+        btnNavText.forEach(cont => toggleDisplay(cont));
+    };
     contents.forEach(cont => toggleDisplay(cont));
     langInd.forEach(ind => toggleLangInd(ind));
 
