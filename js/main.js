@@ -10,7 +10,7 @@ const profileArea = document.querySelector("#profileArea");
 const profiles = JSON.parse(localStorage.getItem("addedProfiles")) == null ? [] : JSON.parse(localStorage.getItem("addedProfiles"));
 const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/paint3.webp", "./images/paint4.webp"];
 const btnCloseProfModal = document.querySelector("#btnCloseProfileModal");
-const contents = [document.querySelectorAll(".enText"), document.querySelectorAll(".esText")];
+let contents = [document.querySelectorAll(".enText"), document.querySelectorAll(".esText")];
 let defaultLang = JSON.parse(localStorage.getItem("defaultLang")) == null ? firstLoadLang() : JSON.parse(localStorage.getItem("defaultLang"));
 const rndUserAPI = "https://randomuser.me/api/";
 const rndUsers = [];
@@ -24,12 +24,13 @@ let rndQ = Math.floor(Math.random() * 15)
 for (var i = 0; i<rndQ; i++) {
     const user = fetch(rndUserAPI)
                 .then(response => response.json())
-                .then(data => populateRnd(data));
+                .then(data => populateRnd(data))
 };
 
 function populateRnd(data){
     let profile = new Profile(data["results"][0]["name"]["first"], data["results"][0]["name"]["last"]);
     drawProfileCard(profile);
+    contents = [document.querySelectorAll(".enText"), document.querySelectorAll(".esText")];
 }
 
 
@@ -97,8 +98,10 @@ function drawProfileCard(profile){
     div.classList.add("profileCard", "d-flex", "flex-column", "align-items-center", "justify-content-center", "mx-5", "my-2");
 
     div.innerHTML = `<img src="${profilePic}" alt="User Profile Painting" class="mt-1 profilePaint">
-                    <h3> Name: ${profile.name} </h3>
-                    <h3> Surname: ${profile.surname} </h3>`;
+                    <h3 class="enText">Name: ${profile.name}</h3>
+                    <h3 class="esText">Nombre: ${profile.name}</h3>
+                    <h3 class="enText">Surname: ${profile.surname}</h3>
+                    <h3 class="esText">Apellido: ${profile.surname}</h3>`;
 
     profileArea.appendChild(div); 
 };
