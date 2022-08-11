@@ -15,9 +15,7 @@ let defaultLang = JSON.parse(localStorage.getItem("defaultLang")) == null ? firs
 const rndUserAPI = "https://randomuser.me/api/";
 const rndUsers = [];
 
-if (defaultLang == "es"){
-    changeLang(true);
-};
+
 
 /* Populate page with random users */
 let rndQ = Math.floor(Math.random() * 15)
@@ -31,8 +29,10 @@ function populateRnd(data){
     let profile = new Profile(data["results"][0]["name"]["first"], data["results"][0]["name"]["last"]);
     drawProfileCard(profile);
     contents = [document.querySelectorAll(".enText"), document.querySelectorAll(".esText")];
-}
-
+    if (defaultLang == "es"){
+        changeLang(true);
+    };
+};
 
 /* Classes */
 class Profile {
@@ -95,13 +95,13 @@ function drawProfileCard(profile){
 
     const div = document.createElement("div");
 
-    div.classList.add("profileCard", "d-flex", "flex-column", "align-items-center", "justify-content-center", "mx-5", "my-2");
+    div.classList.add("profileCard", "d-flex", "flex-column", "align-items-center", "justify-content-center", "mx-1", "mx-md-5", "my-2");
 
     div.innerHTML = `<img src="${profilePic}" alt="User Profile Painting" class="mt-1 profilePaint">
-                    <h3 class="enText">Name: ${profile.name}</h3>
-                    <h3 class="esText">Nombre: ${profile.name}</h3>
-                    <h3 class="enText">Surname: ${profile.surname}</h3>
-                    <h3 class="esText">Apellido: ${profile.surname}</h3>`;
+                    <h3 class="fs-5 mt-2 cardText enText">Name: ${profile.name}</h3>
+                    <h3 class="fs-5 mt-2 cardText esText">Nombre: ${profile.name}</h3>
+                    <h3 class="fs-5 cardText enText">Surname: ${profile.surname}</h3>
+                    <h3 class="fs-5 cardText esText">Apellido: ${profile.surname}</h3>`;
 
     profileArea.appendChild(div); 
 };

@@ -8,3 +8,20 @@
     width: 19vw;
     max-height: 150px;
 };
+
+@media only screen and (max-width:1200px){
+    .profileCard{
+        border: 5px solid rgba(6,22,33,0.42);
+        border-radius: 12px;
+        width: 40vw;
+    };
+
+    .profilePaint{
+        width: 35vw;
+        max-height: 150px;
+    };
+
+    .cardText{
+        font-size: 14px !important;
+    }
+}
