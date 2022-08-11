@@ -42,6 +42,10 @@ function changeLang(){
     contents.forEach(cont => toggleDisplay(cont));
     langInd.forEach(ind => toggleLangInd(ind));
 
+    defaultLang == "en" ? defaultLang = "es" : defaultLang = "en";
+    console.log(defaultLang);
+    localStorage.setItem("defaultLang", JSON.stringify(defaultLang));
+
 };
 
 function toggleFilters(){
