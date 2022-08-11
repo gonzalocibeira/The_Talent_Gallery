@@ -20,16 +20,18 @@
         <nav class="navbar-light mx-5">
             <div class="d-flex flex-column mx-3">
                 <div class="d-flex justify-content-end mt-1">
-                    <button type="button" class="lang_btn mb-1"><span class="weak">ES</span>|<strong>EN</strong></button>
+                    <button type="button" class="lang-btn mb-1"><span id="enLang">EN</span>|<span id="esLang">ES</span></button>
                 </div>
                 <div class="d-flex justify-content-between align-items-center nav_div">
                     <button type="button" class="btn btn-outline-secondary nav_btn" id="filterToggle">
-                        <span class="btnNavText">Show Filters</span>
+                        <span class="btnNavText enText">Show Filters</span>
+                        <span class="btnNavText esText">Mostrar Filtros</span>
                         <img class="navIcon" src="./images/filter.png" alt="Filter button">
                     </button>
                     <a class="navbar-brand text_nav" href="#">- The Talent Gallery -</a>
                     <button type="button" class="btn btn-outline-secondary nav_btn" data-bs-toggle="modal" data-bs-target="#modalCrateProfile">
-                        <span class="btnNavText">Create Profile</span>
+                        <span class="btnNavText enText">Create Profile</span>
+                        <span class="btnNavText esText">Crear Perfil</span>
                         <img class="navIcon" src="./images/plus.png" alt="Add profile button">
                     </button>
                 </div>
@@ -38,14 +40,16 @@
         <!-- Filter bar -->
         <div id="filtersMenu" class="d-xl-flex justify-content-xl-around mt-3 mx-5">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-evenly">
-                <label for="experience" class="form-label me-1 filterText">Experience</label>
+                <label for="experience" class="form-label me-1 filterText enText">Experience</label>
+                <label for="experience" class="form-label me-1 filterText esText">Experiencia</label>
                 <select name="Experience_DD" id="experience" class="form-select filterBar">
                     <option selected>Select field</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Tech">Tech</option>
                     <option value="Sales">Sales</option>
                 </select>
-                <label for="lookingFor" class="form-label ms-3 me-1 filterText">Looking for a job in</label>
+                <label for="lookingFor" class="form-label ms-3 me-1 filterText enText">Looking for a job in</label>
+                <label for="experience" class="form-label me-1 filterText esText">Buscando trabajo en</label>
                 <select name="lookingFor_DD" id="lookingFor" class="form-select filterBar">
                     <option selected>Select field</option>
                     <option value="Marketing">Marketing</option>
@@ -55,7 +59,8 @@
             </div>
             <div class="d-flex flex-column flex-md-row flex-xl-column align-items-center mt-1 justify-content-evenly">
                 <div>
-                    <span class="me-1 filterText">Speaks</span>
+                    <span class="me-1 filterText enText">Speaks</span>
+                    <span class="me-1 filterText esText">Habla</span>
                     <input type="checkbox" class="btn-check" id="spks_EN" checked autocomplete="off">
                     <label class="btn btn-outline-primary" for="spks_EN">EN</label>
                     <input type="checkbox" class="btn-check" id="spks_ES" checked autocomplete="off">
@@ -68,7 +73,8 @@
                     <label class="btn btn-outline-primary" for="spks_OT">Other</label>
                 </div>
                 <div class="mt-1 mt-md-0 mt-lg-1 ms-3 ms-lg-0">
-                    <span class="me-1 filterText">Can work in</span>
+                    <span class="me-1 filterText enText">Can work in</span>
+                    <span class="me-1 filterText esText">Puede Trabajar en</span>
                     <input type="checkbox" class="btn-check" id="wrk_US" checked autocomplete="off">
                     <label class="btn btn-outline-primary" for="wrk_US">US</label>
                     <input type="checkbox" class="btn-check" id="wrk_EU" checked autocomplete="off">

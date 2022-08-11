@@ -1,12 +1,15 @@
 /* Variables */
 const filterBar = document.querySelector("#filtersMenu");
 const filterBtn = document.querySelector("#filterToggle");
+const langBtn = document.querySelector(".lang-btn");
+const langInd = [document.querySelector("#enLang"), document.querySelector("#esLang")];
 const entregaUnoBtn = document.querySelector("#entregaUno");
 const profileForm = document.querySelector("#newProfileForm");
 const profileArea = document.querySelector("#profileArea");
 const profiles = JSON.parse(localStorage.getItem("addedProfiles")) == null ? [] : JSON.parse(localStorage.getItem("addedProfiles"));
 const userPics = ["./images/paint1.webp", "./images/paint2.webp", "./images/paint3.webp", "./images/paint4.webp"];
 const btnCloseProfModal = document.querySelector("#btnCloseProfileModal");
+const contents = [document.querySelectorAll(".enText"), document.querySelectorAll(".esText")];
 
 /* Classes */
 class Profile {
@@ -22,6 +25,20 @@ if (profiles.length > 0) {
 };
 
 /* Functions */
+function toggleDisplay(cont){
+    window.getComputedStyle(cont[0]).display == "none" ? cont.forEach(el => el.style.display = "block") : cont.forEach(el => el.style.display = "none");
+};
+
+function toggleLangInd(btn){
+    window.getComputedStyle(btn).fontWeight === "700" ? btn.style.fontWeight = "100" : btn.style.fontWeight = "700";
+};
+
+function changeLang(){
+    contents.forEach(cont => toggleDisplay(cont));
+    langInd.forEach(ind => toggleLangInd(ind));
+
+};
+
 function toggleFilters(){
     window.getComputedStyle(filterBar).display === "none" ? filterBar.style.setProperty("display", "block", "important") : filterBar.style.setProperty("display", "none", "important") ;
 };
@@ -61,6 +78,7 @@ function addProfile() {
 
 /* Event listeners */
 filterBtn.addEventListener("click", toggleFilters);
+langBtn.addEventListener("click", changeLang);
 profileForm.addEventListener("submit", addProfile);
 
 

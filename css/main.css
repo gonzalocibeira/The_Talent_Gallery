@@ -3,9 +3,15 @@
   margin: 0;
   padding: 0; }
 
-.lang_btn {
+.lang-btn {
   background-color: transparent;
   border: none; }
+
+#enLang {
+  font-weight: 700; }
+
+.esText {
+  display: none; }
 
 .text_nav {
   font-family: 'Montserrat', sans-serif;
@@ -16,9 +22,6 @@
 
 .nav_btn {
   height: 35px; }
-
-span.weak {
-  font-weight: lighter; }
 
 .navIcon {
   display: none; }
