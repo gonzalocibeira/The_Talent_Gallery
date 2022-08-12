@@ -1,4 +1,6 @@
 /* Variables */
+const body = document.querySelector("body");
+const loadingScreen = document.querySelector("#loadingScreen");
 const filterBar = document.querySelector("#filtersMenu");
 const filterBtn = document.querySelector("#filterToggle");
 const btnNavText = [document.querySelectorAll(".enNav"), document.querySelectorAll(".esNav")];
@@ -15,14 +17,18 @@ let defaultLang = JSON.parse(localStorage.getItem("defaultLang")) == null ? firs
 const rndUserAPI = "https://randomuser.me/api/";
 const rndUsers = [];
 
-
-
 /* Populate page with random users */
 let rndQ = Math.floor(Math.random() * 15)
 for (var i = 0; i<rndQ; i++) {
     const user = fetch(rndUserAPI)
                 .then(response => response.json())
-                .then(data => populateRnd(data))
+                .then(data => populateRnd(data));
+    
+    if (i == rndQ-1){
+        setTimeout(dataLoaded, 2000);
+    };
+    //setTimeout(function (){if (i == rndQ-1){dataLoaded()};}, 500); 
+                
 };
 
 function populateRnd(data){
@@ -32,6 +38,11 @@ function populateRnd(data){
     if (defaultLang == "es"){
         changeLang(true);
     };
+};
+
+function dataLoaded(){
+    loadingScreen.remove();
+    body.classList.remove("hiddenOnLoad");
 };
 
 /* Classes */

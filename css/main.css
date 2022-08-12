@@ -1,3 +1,82 @@
+.hiddenOnLoad {
+  overflow: hidden; }
+
+#loadingScreen {
+  height: 100vh; }
+
+@keyframes ldio-tj9rs6jbw0n-1 {
+  0% {
+    top: 8.799999999999997px;
+    height: 182.4px; }
+  50% {
+    top: 43px;
+    height: 114px; }
+  100% {
+    top: 43px;
+    height: 114px; } }
+
+@keyframes ldio-tj9rs6jbw0n-2 {
+  0% {
+    top: 17.349999999999994px;
+    height: 165.3px; }
+  50% {
+    top: 43px;
+    height: 114px; }
+  100% {
+    top: 43px;
+    height: 114px; } }
+
+@keyframes ldio-tj9rs6jbw0n-3 {
+  0% {
+    top: 25.89999999999999px;
+    height: 148.20000000000002px; }
+  50% {
+    top: 43px;
+    height: 114px; }
+  100% {
+    top: 43px;
+    height: 114px; } }
+
+.ldio-tj9rs6jbw0n div {
+  position: absolute;
+  width: 28px; }
+
+.ldio-tj9rs6jbw0n div:nth-child(1) {
+  left: 36px;
+  background: #85a2b6;
+  animation: ldio-tj9rs6jbw0n-1 1.53846s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation-delay: -0.3076923076923077s; }
+
+.ldio-tj9rs6jbw0n div:nth-child(2) {
+  left: 86px;
+  background: #bbcedd;
+  animation: ldio-tj9rs6jbw0n-2 1.53846s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation-delay: -0.15384615384615385s; }
+
+.ldio-tj9rs6jbw0n div:nth-child(3) {
+  left: 136px;
+  background: #dce4eb;
+  animation: ldio-tj9rs6jbw0n-3 1.53846s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation-delay: undefineds; }
+
+.loadingio-spinner-pulse-bczwjdr7rl9 {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: none; }
+
+.ldio-tj9rs6jbw0n {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; }
+
+.ldio-tj9rs6jbw0n div {
+  box-sizing: content-box; }
+
 /* CSS reset */
 * {
   margin: 0;
@@ -28,6 +107,12 @@
 
 .navIcon {
   display: none; }
+
+.icon_footer {
+  width: 30px; }
+
+.footer_text {
+  font-weight: 700; }
 
 #filtersMenu {
   padding-bottom: 1vh;

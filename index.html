@@ -16,7 +16,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Pacifico&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>The Talent Gallery</title>
 </head>
-<body class="d-flex flex-column min-vh-100 bg-light">
+<body class="d-flex flex-column bg-light hiddenOnLoad">
+    <div class="d-flex align-items-center justify-content-center" id="loadingScreen">
+        <div class="loadingio-spinner-pulse-bczwjdr7rl9">
+            <div class="ldio-tj9rs6jbw0n">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
         <nav class="navbar-light mx-1 mx-md-5">
             <div class="d-flex flex-column mx-3">
                 <div class="d-flex justify-content-end mt-1">
@@ -88,7 +97,7 @@
                 </div>
             </div>
         </div>
-        <main>
+        <main class="min-vh-100">
             <!-- Modal Create Profile -->
             <div class="modal fade" id="modalCrateProfile" tabindex="-1" aria-labelledby="modalCrateProfileLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -118,7 +127,14 @@
             <div id="profileArea" class="d-flex flex-wrap align-items-center justify-content-center">
             </div>
         </main>
-    </div>
+        <!-- Footer -->
+        <footer>
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-end pe-md-4 py-3 bg-dark text-light">
+            <img src="./images/nika.png" alt="Sraw Hat Icon" class="icon_footer me-2">
+            <span class="footer_text enText">Developed by Gonzalo Cibeira - 2022</span>
+            <span class="footer_text esText">Desarrollado por Gonzalo Cibeira - 2022</span>
+            </div>
+        </footer>
     <!-- SweetAlert JS -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- My JS -->
