@@ -18,18 +18,21 @@ const rndUserAPI = "https://randomuser.me/api/";
 const rndUsers = [];
 
 /* Populate page with random users */
-let rndQ = Math.floor(Math.random() * 15)
-for (var i = 0; i<rndQ; i++) {
-    const user = fetch(rndUserAPI)
-                .then(response => response.json())
-                .then(data => populateRnd(data));
-    
-    if (i == rndQ-1){
-        setTimeout(dataLoaded, 2000);
+function firstLoad(){
+    let rndQ = Math.floor(Math.random() * 15)
+    for (var i = 0; i<rndQ; i++) {
+        const user = fetch(rndUserAPI)
+                    .then(response => response.json())
+                    .then(data => populateRnd(data));
+        
+        if (i == rndQ-1){
+            setTimeout(dataLoaded, 2000);
+        };                
     };
-    //setTimeout(function (){if (i == rndQ-1){dataLoaded()};}, 500); 
-                
 };
+
+/* Execute FIrst Load Function */
+firstLoad();
 
 function populateRnd(data){
     let profile = new Profile(data["results"][0]["name"]["first"], data["results"][0]["name"]["last"]);
