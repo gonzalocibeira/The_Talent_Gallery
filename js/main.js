@@ -17,7 +17,7 @@ let defaultLang = JSON.parse(localStorage.getItem("defaultLang")) == null ? firs
 const rndUserAPI = "https://randomuser.me/api/";
 const rndUsers = [];
 
-/* Populate page with random users */
+/* Populate page with random users on page load*/
 function firstLoad(){
     let rndQ = Math.floor(Math.random() * 15)
     for (var i = 0; i<rndQ; i++) {
@@ -26,14 +26,15 @@ function firstLoad(){
                     .then(data => populateRnd(data));
         
         if (i == rndQ-1){
-            setTimeout(dataLoaded, 2000);
+            setTimeout(dataLoaded, 2000); // This is set as a timeout instead of a .this for aesthetics (.this loaded too quickly)
         };                
     };
 };
 
-/* Execute FIrst Load Function */
+/* Execute First Load Function */
 firstLoad();
 
+/* Create random user profiles and set their language to the default */
 function populateRnd(data){
     let profile = new Profile(data["results"][0]["name"]["first"], data["results"][0]["name"]["last"]);
     drawProfileCard(profile);
@@ -43,6 +44,7 @@ function populateRnd(data){
     };
 };
 
+/* Hide loading screen */
 function dataLoaded(){
     loadingScreen.remove();
     body.classList.remove("hiddenOnLoad");
@@ -56,17 +58,18 @@ class Profile {
     }
 };
 
-/*Draw profiles in localStorage */
+/*Draw the profiles saved in localStorage */
 if (profiles.length > 0) {
     profiles.forEach(profile => drawProfileCard(profile));
 };
 
-/* Functions */
+/* If no lang is stored in localStorage, it sets it to "en" */
 function firstLoadLang(){
     localStorage.setItem("defaultLang", JSON.stringify("en"));
     return "en";
 };
 
+/* This fixes a bug when switching from desktop to mobile*/
 function navBtnFix(){
     w = document.documentElement.clientWidth;
     if (w < 1200){
@@ -77,14 +80,17 @@ function navBtnFix(){
     }
 };
 
+/* Toggle display between none and block */
 function toggleDisplay(cont){
     window.getComputedStyle(cont[0]).display == "none" ? cont.forEach(el => el.style.display = "block") : cont.forEach(el => el.style.display = "none");
 };
 
+/* Change font weight for language selection button */
 function toggleLangInd(btn){
     window.getComputedStyle(btn).fontWeight === "700" ? btn.style.fontWeight = "100" : btn.style.fontWeight = "700";
 };
 
+/* Change langauge of the site */
 function changeLang(isDefault){
     w = document.documentElement.clientWidth;
     if(w >= 1200){
@@ -100,10 +106,12 @@ function changeLang(isDefault){
     };
 };
 
+/* Show filters menu */
 function toggleFilters(){
     window.getComputedStyle(filterBar).display === "none" ? filterBar.style.setProperty("display", "block", "important") : filterBar.style.setProperty("display", "none", "important") ;
 };
 
+/* Function to draw profile cards to the DOM */
 function drawProfileCard(profile){
     const profilePic = userPics[Math.floor(Math.random() * userPics.length)];
 
@@ -120,6 +128,7 @@ function drawProfileCard(profile){
     profileArea.appendChild(div); 
 };
 
+/* Function to add a profile */
 function addProfile() {
     const profile = new Profile(profileForm.elements["nameInput"].value, profileForm.elements["surnameInput"].value)
     
@@ -135,7 +144,7 @@ function addProfile() {
         title: 'New profile added!',
         icon: 'success',
         confirmButtonText: 'Awesome!'
-      });
+    });
 };
 
 
