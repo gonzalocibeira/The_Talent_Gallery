@@ -26,7 +26,7 @@ function firstLoad(){
                     .then(data => populateRnd(data));
         
         if (i == rndQ-1){
-            setTimeout(dataLoaded, 2000); // This is set as a timeout instead of a .this for aesthetics (.this loaded too quickly)
+            setTimeout(dataLoaded, 1500); // This is set as a timeout instead of a .this for aesthetics (.this loaded too quickly)
         };                
     };
 };
@@ -90,7 +90,7 @@ function toggleLangInd(btn){
     window.getComputedStyle(btn).fontWeight === "700" ? btn.style.fontWeight = "100" : btn.style.fontWeight = "700";
 };
 
-/* Change langauge of the site */
+/* Change langauge of the site and set new lang as default on localStorage*/
 function changeLang(isDefault){
     w = document.documentElement.clientWidth;
     if(w >= 1200){
